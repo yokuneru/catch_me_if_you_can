@@ -1,0 +1,57 @@
+.info-wrap {
+  position: fixed;
+  text-align: center;
+  top: 5vh;
+  width: 100vw;
+  user-select: none;
+}
+
+.title {
+  font-family: serif;
+  font-size: 24px;
+  padding: 15px;
+}
+
+.info {
+  font-family: helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 3px;
+}
+
+#canvas {
+  background: rgb(240, 240, 240);
+}
+
+.notice-wrap {
+  position: absolute;
+  width: 100vw;
+  top: 50vh;
+}
+
+.notice {
+  margin: 0 auto;
+  width: 200px;
+  padding: 20px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.notice-msg {
+  padding-bottom: 10px;
+  font-size: 12px;
+  font-family: serif;
+}
+
+.notice-btn {
+  padding: 10px 10px;
+  border-radius: 5px;
+  background: rgb(220, 220, 220);
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}

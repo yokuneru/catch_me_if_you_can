@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Catch me if you can!</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="info-wrap">
+    <h1 class="title">Catch me if you can!</h1>
+    <p class="info">Time: <span id="time">5:00:00</span></p>
+    <p class="info">Level: <span id="level">1</span></p>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <div class="notice-wrap">
+    <div class="try notice">
+      <p class="notice-msg">飛んでいる球を捕まえてください</p>
+      <button class="notice-btn" id="start-btn" type="button" name="button">ゲームを開始する</button>
+    </div>
+  </div>
+
+  <div class="notice-wrap hide" id="next-notice">
+    <div class="try notice">
+      <p class="notice-msg" id="next-msg">-text will change- </p>
+      <button class="notice-btn" id="next-btn" type="button" name="button">次のレベルに進む</button>
+    </div>
+  </div>
+
+  <div class="notice-wrap hide" id="retry-notice">
+    <div class="try notice">
+      <p class="notice-msg" id="retry-msg">タイムオーバーです</p>
+      <button class="notice-btn" id="retry-btn" type="button" name="button">もういちど挑戦する</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="main.js" type="text/javascript"></script>
+</body>
+</html>
