@@ -45,8 +45,8 @@ $(function(){
   }
 
   function changeVelocity() {
-    var min = 3 * level / 2;
-    var max = 6 * level / 2;
+    var min = 1 * level / 5;
+    var max = 10 * level / 5;
     vx = getRandomInt(min, max) * Math.sign(Math.random() - 0.5);
     vy = getRandomInt(min, max) * Math.sign(Math.random() - 0.5);
   }
@@ -54,9 +54,11 @@ $(function(){
   function reflect(x, y) {
     if(x - ballR < 0 || canvas.width < x + ballR){
       vx *= -1;
+      ballX -= ballR * Math.sign(x - ballR);
     }
     if(y - ballR < 0 || canvas.height < y + ballR){
       vy *= -1;
+      ballY -= ballR * Math.sign(y - ballR);
     }
   }
 
@@ -78,6 +80,10 @@ $(function(){
     isStart = false;
     $('#retry-notice').removeClass('hide');
     $('#time').text('5:00:00');
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 3 + 20;
+    vx = 0;
+    vy = 0;
   }
 
 
