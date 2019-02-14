@@ -45,7 +45,7 @@ $(function(){
   }
 
   function changeVelocity() {
-    var min = 1 * level / 5;
+    var min = 3 * level / 5;
     var max = 10 * level / 5;
     vx = getRandomInt(min, max) * Math.sign(Math.random() - 0.5);
     vy = getRandomInt(min, max) * Math.sign(Math.random() - 0.5);
@@ -64,10 +64,12 @@ $(function(){
 
   function updateTimer() {
     var ellapsedTime = $.now() - startTime;
-    var remainTime = 5 * 60 * 1000 - ellapsedTime;
+    var remainTime = 3 * 60 * 1000 - ellapsedTime;
     var m = Math.floor(remainTime / 60 / 1000);
     var s = ('00' + Math.floor((remainTime - m * 60000)/ 1000)).slice(-2);
     var ms = ('00' + Math.floor(remainTime - m * 60000 - s * 1000)).slice(-2);
+
+    if(m < 1){ $('#time').css('color', 'red'); }
 
     $('#time').text(m + ':' + s + ':' + ms);
 
@@ -79,7 +81,8 @@ $(function(){
   function gameOver() {
     isStart = false;
     $('#retry-notice').removeClass('hide');
-    $('#time').text('5:00:00');
+    $('#time').text('3:00:00');
+    $('#time').css('color', 'rgb(60, 20, 20)');
     ballX = canvas.width / 2;
     ballY = canvas.height / 3 + 20;
     vx = 0;
@@ -121,12 +124,13 @@ $(function(){
     if(Math.abs(ballX - mouseX) < ballR && Math.abs(ballY - mouseY) < ballR && isStart == true) {
       isStart = false;
 
-      $('#time').text('5:00:00');
+      $('#time').text('3:00:00');
       var beforeLevel = level;
       level += 1;
       $('#level').text(level);
       $('#next-notice').removeClass('hide');
-      $('#next-msg').text('レベル' + beforeLevel + 'をクリアしました')
+      $('#next-msg').text('レベル' + beforeLevel + 'をクリアしました');
+      $('#time').css('color', 'rgb(60, 20, 20)');
 
       ballX = canvas.width / 2;
       ballY = canvas.height / 3 + 20;
@@ -144,7 +148,7 @@ $(function(){
     if(isStart == true){
       updateTimer();
       reflect(ballX, ballY);
-      if(Math.random() < 0.03){
+      if(Math.random() < 0.03 + level / 100){
         changeVelocity();
       }
     }
