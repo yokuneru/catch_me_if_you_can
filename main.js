@@ -143,9 +143,9 @@ $(function(){
 
 
   $('body').on('touchstart', function(e) {
-    mouseX = e.changedTouches[0].offsetX;
-    mouseY = e.changedTouches[0].offsetY;
-    isCatch();
+    // mouseX = e.changedTouches[0].offsetX;
+    // mouseY = e.changedTouches[0].offsetY;
+    // isCatch();
     alert("touched");
   });
 
