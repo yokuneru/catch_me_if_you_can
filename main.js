@@ -45,8 +45,8 @@ $(function(){
   }
 
   function changeVelocity() {
-    var min = 3 * level / 5;
-    var max = 10 * level / 5;
+    var min = 3 * level;
+    var max = 10 * level;
     vx = getRandomInt(min, max) * Math.sign(Math.random() - 0.5);
     vy = getRandomInt(min, max) * Math.sign(Math.random() - 0.5);
   }
