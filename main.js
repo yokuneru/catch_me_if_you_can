@@ -64,12 +64,12 @@ $(function(){
 
   function updateTimer() {
     var ellapsedTime = $.now() - startTime;
-    var remainTime = 3 * 60 * 1000 - ellapsedTime;
+    var remainTime = 1.5 * 60 * 1000 - ellapsedTime;
     var m = Math.floor(remainTime / 60 / 1000);
     var s = ('00' + Math.floor((remainTime - m * 60000)/ 1000)).slice(-2);
     var ms = ('00' + Math.floor(remainTime - m * 60000 - s * 1000)).slice(-2);
 
-    if(m < 1){ $('#time').css('color', 'red'); }
+    if(m =< 0 && s < 30){ $('#time').css('color', 'red'); }
 
     $('#time').text(m + ':' + s + ':' + ms);
 
