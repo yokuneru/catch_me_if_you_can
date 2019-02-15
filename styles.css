@@ -58,3 +58,11 @@
 .hide {
   display: none;
 }
+
+.version {
+  font-size: 4px;
+  color: rgb(150, 150, 150);
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
