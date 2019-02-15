@@ -135,20 +135,19 @@ $(function(){
     changeVelocity();
   });
 
-  $('body').on('mousedown', function(e) {
-    mouseX = e.offsetX;
-    mouseY = e.offsetY;
-    isCatch();
-  });
-
-
-  $('body').on('touchstart', function(e) {
-    // mouseX = e.changedTouches[0].offsetX;
-    // mouseY = e.changedTouches[0].offsetY;
-    // isCatch();
-    alert("touched");
-  });
-
+  if(window.ontouchstart === undefined){
+    $('body').on('mousedown', function(e) {
+      mouseX = e.offsetX;
+      mouseY = e.offsetY;
+      isCatch();
+    });
+  } else {
+    $('body').on('touchstart', function(e) {
+      mouseX = e.changedTouches[0].pageX;
+      mouseY = e.changedTouches[0].pageY;
+      isCatch();
+    });
+  }
 
 
   // ===== 描画更新 =====
