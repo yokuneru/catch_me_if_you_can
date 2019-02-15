@@ -117,7 +117,7 @@ $(function(){
     changeVelocity();
   });
 
-  $('body').on('mousedown', function(e) {
+  $('body').on('mousedown touchstart', function(e) {
     mouseX = e.offsetX;
     mouseY = e.offsetY;
 
