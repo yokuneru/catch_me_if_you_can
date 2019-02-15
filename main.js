@@ -143,9 +143,10 @@ $(function(){
 
 
   $('body').on('touchstart', function(e) {
-    mouseX = e.changedTouches[0].pageX;
-    mouseY = e.changedTouches[0].pageY;
+    mouseX = e.changedTouches[0].offsetX;
+    mouseY = e.changedTouches[0].offsetY;
     isCatch();
+    alert("touched");
   });
 
 
