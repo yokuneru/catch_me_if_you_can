@@ -129,7 +129,7 @@ $(function(){
       level += 1;
       $('#level').text(level);
       $('#next-notice').removeClass('hide');
-      $('#next-msg').text('レベル' + beforeLevel + 'をクリアしました');
+      $('#next-msg').text('レベル' + beforeLevel + 'をクリアしました!');
       $('#time').css('color', 'rgb(60, 20, 20)');
 
       ballX = canvas.width / 2;
