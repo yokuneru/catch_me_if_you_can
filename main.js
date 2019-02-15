@@ -89,6 +89,24 @@ $(function(){
     vy = 0;
   }
 
+  function isCatch() {
+    if(Math.abs(ballX - mouseX) < ballR && Math.abs(ballY - mouseY) < ballR && isStart == true) {
+      isStart = false;
+
+      $('#time').text('3:00:00');
+      var beforeLevel = level;
+      level += 1;
+      $('#level').text(level);
+      $('#next-notice').removeClass('hide');
+      $('#next-msg').text('レベル' + beforeLevel + 'をクリアしました!');
+      $('#time').css('color', 'rgb(60, 20, 20)');
+
+      ballX = canvas.width / 2;
+      ballY = canvas.height / 3 + 20;
+      vx = 0;
+      vy = 0;
+    }
+  }
 
 
   // ===== イベント =====
@@ -117,27 +135,19 @@ $(function(){
     changeVelocity();
   });
 
-  $('body').on('mousedown touchstart', function(e) {
+  $('body').on('mousedown', function(e) {
     mouseX = e.offsetX;
     mouseY = e.offsetY;
-
-    if(Math.abs(ballX - mouseX) < ballR && Math.abs(ballY - mouseY) < ballR && isStart == true) {
-      isStart = false;
-
-      $('#time').text('3:00:00');
-      var beforeLevel = level;
-      level += 1;
-      $('#level').text(level);
-      $('#next-notice').removeClass('hide');
-      $('#next-msg').text('レベル' + beforeLevel + 'をクリアしました!');
-      $('#time').css('color', 'rgb(60, 20, 20)');
-
-      ballX = canvas.width / 2;
-      ballY = canvas.height / 3 + 20;
-      vx = 0;
-      vy = 0;
-    }
+    isCatch();
   });
+
+
+  $('body').on('touchstart', function(e) {
+    mouseX = e.changedTouches[0].pageX;
+    mouseY = e.changedTouches[0].pageY;
+    isCatch();
+  });
+
 
 
   // ===== 描画更新 =====
